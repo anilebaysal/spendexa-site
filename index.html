@@ -1,24 +1,55 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-language="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Spendexa destek ve gizlilik bilgileri">
   <title>Spendexa</title>
+  <script>
+    try {
+      const savedLanguage = localStorage.getItem("spendexa-language");
+      if (savedLanguage === "en" || savedLanguage === "tr") {
+        document.documentElement.dataset.language = savedLanguage;
+        document.documentElement.lang = savedLanguage;
+      }
+    } catch {}
+  </script>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/language.js" defer></script>
 </head>
-<body>
+<body
+  data-title-tr="Spendexa"
+  data-title-en="Spendexa"
+  data-description-tr="Spendexa destek ve gizlilik bilgileri"
+  data-description-en="Spendexa support and privacy information"
+>
   <header class="wrap">
-    <a class="brand" href="/">spend<span>exa</span></a>
+    <div class="header-row">
+      <a class="brand" href="/" aria-label="Spendexa">spend<span>exa</span></a>
+      <div class="language-switcher" role="group" aria-label="Language / Dil">
+        <button class="language-button" type="button" data-language-button="tr" aria-pressed="true">TR</button>
+        <button class="language-button" type="button" data-language-button="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </header>
   <main class="wrap">
-    <section class="card">
+    <section class="card" data-lang="tr">
       <p class="muted">Gelir ve gider takibi</p>
       <h1>Spendexa</h1>
       <p>Spendexa ile gelirlerinizi, giderlerinizi, kategorilerinizi ve para birimlerinizi tek yerde takip edin.</p>
       <div class="actions">
         <a class="button" href="/support/">Destek</a>
         <a class="button secondary" href="/privacy/">Gizlilik Politikası</a>
+      </div>
+    </section>
+
+    <section class="card" data-lang="en" lang="en">
+      <p class="muted">Income and expense tracking</p>
+      <h1>Spendexa</h1>
+      <p>Track your income, expenses, categories, and currencies together with Spendexa.</p>
+      <div class="actions">
+        <a class="button" href="/support/">Support</a>
+        <a class="button secondary" href="/privacy/">Privacy Policy</a>
       </div>
     </section>
   </main>

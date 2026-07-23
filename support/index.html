@@ -1,18 +1,39 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-language="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Spendexa destek sayfası">
   <title>Destek · Spendexa</title>
+  <script>
+    try {
+      const savedLanguage = localStorage.getItem("spendexa-language");
+      if (savedLanguage === "en" || savedLanguage === "tr") {
+        document.documentElement.dataset.language = savedLanguage;
+        document.documentElement.lang = savedLanguage;
+      }
+    } catch {}
+  </script>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/language.js" defer></script>
 </head>
-<body>
+<body
+  data-title-tr="Destek · Spendexa"
+  data-title-en="Support · Spendexa"
+  data-description-tr="Spendexa destek sayfası"
+  data-description-en="Spendexa support page"
+>
   <header class="wrap">
-    <a class="brand" href="/">spend<span>exa</span></a>
+    <div class="header-row">
+      <a class="brand" href="/" aria-label="Spendexa">spend<span>exa</span></a>
+      <div class="language-switcher" role="group" aria-label="Language / Dil">
+        <button class="language-button" type="button" data-language-button="tr" aria-pressed="true">TR</button>
+        <button class="language-button" type="button" data-language-button="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </header>
   <main class="wrap">
-    <section class="card lang-section">
+    <section class="card" data-lang="tr">
       <p class="muted">Destek</p>
       <h1>Size nasıl yardımcı olabiliriz?</h1>
       <p>Spendexa ile ilgili hata bildirimi, öneri, veri aktarımı veya kullanım sorularınız için bize e-posta gönderebilirsiniz.</p>
@@ -25,15 +46,16 @@
       </div>
     </section>
 
-    <section class="card lang-section" lang="en">
+    <section class="card" data-lang="en" lang="en">
       <p class="muted">Support</p>
-      <h2>How can we help?</h2>
-      <p>Contact us for bug reports, suggestions, data import/export questions, or help using Spendexa.</p>
+      <h1>How can we help?</h1>
+      <p>Contact us for bug reports, suggestions, data import or export questions, or help using Spendexa.</p>
       <div class="notice">
         Including your iPhone model, iOS version, and steps that reproduce the issue can help us respond faster. Do not send PINs, passwords, or sensitive financial information.
       </div>
       <div class="actions">
         <a class="button" href="mailto:contact@spendexa.info?subject=Spendexa%20Support">contact@spendexa.info</a>
+        <a class="button secondary" href="/privacy/">Privacy Policy</a>
       </div>
     </section>
   </main>

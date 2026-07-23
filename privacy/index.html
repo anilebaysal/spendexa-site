@@ -1,18 +1,39 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-language="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Spendexa gizlilik politikası">
   <title>Gizlilik Politikası · Spendexa</title>
+  <script>
+    try {
+      const savedLanguage = localStorage.getItem("spendexa-language");
+      if (savedLanguage === "en" || savedLanguage === "tr") {
+        document.documentElement.dataset.language = savedLanguage;
+        document.documentElement.lang = savedLanguage;
+      }
+    } catch {}
+  </script>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/language.js" defer></script>
 </head>
-<body>
+<body
+  data-title-tr="Gizlilik Politikası · Spendexa"
+  data-title-en="Privacy Policy · Spendexa"
+  data-description-tr="Spendexa gizlilik politikası"
+  data-description-en="Spendexa privacy policy"
+>
   <header class="wrap">
-    <a class="brand" href="/">spend<span>exa</span></a>
+    <div class="header-row">
+      <a class="brand" href="/" aria-label="Spendexa">spend<span>exa</span></a>
+      <div class="language-switcher" role="group" aria-label="Language / Dil">
+        <button class="language-button" type="button" data-language-button="tr" aria-pressed="true">TR</button>
+        <button class="language-button" type="button" data-language-button="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </header>
   <main class="wrap">
-    <article class="card lang-section">
+    <article class="card" data-lang="tr">
       <p class="muted">Son güncelleme: 23 Temmuz 2026</p>
       <h1>Gizlilik Politikası</h1>
       <p>Bu politika, Spendexa mobil uygulamasının verileri nasıl işlediğini açıklar.</p>
@@ -48,39 +69,39 @@
       <p>Gizlilik sorularınız için <a href="mailto:contact@spendexa.info?subject=Spendexa%20Privacy">contact@spendexa.info</a> adresine ulaşabilirsiniz.</p>
     </article>
 
-    <article class="card lang-section" lang="en">
+    <article class="card" data-lang="en" lang="en">
       <p class="muted">Last updated: July 23, 2026</p>
-      <h2>Privacy Policy</h2>
+      <h1>Privacy Policy</h1>
       <p>This policy explains how the Spendexa mobile application handles information.</p>
 
-      <h3>1. Information stored</h3>
+      <h2>1. Information stored</h2>
       <p>Spendexa does not require an account. Income, expenses, categories, profiles, app preferences, and similar information are stored locally on your device.</p>
 
-      <h3>2. Sharing</h3>
+      <h2>2. Sharing</h2>
       <p>Spendexa does not sell your financial records to advertisers or share them for marketing purposes.</p>
 
-      <h3>3. Exchange-rate services</h3>
+      <h2>3. Exchange-rate services</h2>
       <p>When you use exchange-rate features, the app may contact a third-party exchange-rate service to retrieve reference rates. These requests do not include your account or financial records. The service may process IP addresses and standard technical connection data as part of internet communication.</p>
 
-      <h3>4. Notifications</h3>
+      <h2>4. Notifications</h2>
       <p>Notifications are enabled only with your permission. You can change notification permission at any time in iPhone Settings.</p>
 
-      <h3>5. Face ID and PIN</h3>
+      <h2>5. Face ID and PIN</h2>
       <p>Spendexa does not access Face ID biometric data. Apple performs authentication on the device and returns only a success or failure result. PIN information is stored in the device Keychain.</p>
 
-      <h3>6. Exporting and sharing</h3>
+      <h2>6. Exporting and sharing</h2>
       <p>You initiate profile and data exports and decide where exported files are stored or shared.</p>
 
-      <h3>7. Deletion</h3>
+      <h2>7. Deletion</h2>
       <p>You can remove records using deletion and reset controls in the app. Removing the app also removes app data stored on the device; iOS Keychain behavior is managed by Apple.</p>
 
-      <h3>8. Children's privacy</h3>
+      <h2>8. Children's privacy</h2>
       <p>Spendexa does not knowingly collect personal information from children.</p>
 
-      <h3>9. Changes</h3>
+      <h2>9. Changes</h2>
       <p>This policy may be updated as the app changes. The current version will be published on this page.</p>
 
-      <h3>10. Contact</h3>
+      <h2>10. Contact</h2>
       <p>For privacy questions, contact <a href="mailto:contact@spendexa.info?subject=Spendexa%20Privacy">contact@spendexa.info</a>.</p>
     </article>
   </main>

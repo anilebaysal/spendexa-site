@@ -20,6 +20,10 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html[data-language="tr"] [data-lang="en"],
+html[data-language="en"] [data-lang="tr"] {
+  display: none !important;
+}
 body {
   margin: 0;
   background: var(--bg);
@@ -35,16 +39,52 @@ a { color: var(--accent); }
 header {
   padding: 28px 0 18px;
 }
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   text-decoration: none;
   color: var(--text);
   font-size: 24px;
   font-weight: 800;
+  letter-spacing: -0.5px;
 }
 .brand span { color: var(--accent); }
+.language-switcher {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+.language-button {
+  min-width: 44px;
+  border: 0;
+  border-radius: 9px;
+  padding: 7px 10px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.language-button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #ffffff;
+}
+.language-button:focus-visible,
+.button:focus-visible,
+a:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  outline-offset: 3px;
+}
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -84,11 +124,6 @@ p, li { color: var(--text); }
   background: color-mix(in srgb, var(--accent) 10%, transparent);
   border-radius: 0 12px 12px 0;
 }
-.lang-section + .lang-section {
-  border-top: 1px solid var(--border);
-  margin-top: 38px;
-  padding-top: 22px;
-}
 footer {
   color: var(--muted);
   text-align: center;
@@ -103,4 +138,6 @@ code {
 }
 @media (max-width: 520px) {
   .card { padding: 22px 18px; border-radius: 18px; }
+  .header-row { gap: 12px; }
+  .brand { font-size: 22px; }
 }
